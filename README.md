@@ -21,6 +21,7 @@ The user will eventually be able to
 
 ## Super Stretch Goals
 
+The user will hopefully one day be able to
 -Create their own profile so that they can save their lists and refer back to them later/continue to add on to it
 -Rearrange their watch list in order of importance to them
 -Have all of these same functionalities for finding new manga to read
