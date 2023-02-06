@@ -19,9 +19,15 @@ async function getData (event) {
 
       let results = res.data
 
+      //NEED TO figure out how to delete old search that pops up now
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
         let title = anime.title
+        let containerDisplay = document.querySelector('.container')
+        let textNode = document.createTextNode(title)
+        let newLine = document.createElement('br')
+        containerDisplay.appendChild(textNode)
+        containerDisplay.appendChild(newLine) 
       }
 
       for (let i = 0; i < results.length; i++) {
@@ -48,6 +54,8 @@ async function getData (event) {
         console.log(numEpisodes) //if...else: if episodes = null then display "unavailable", otherwise display number of episodes
       }
       
+      
+
       let rating = document.querySelector('.rating')
 
       let ratingByUsers = document.querySelector('.rating-by-users')
