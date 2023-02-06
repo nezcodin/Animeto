@@ -31,7 +31,7 @@ async function getData (event) {
 
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
-        let rating = anime.score //if...else: if score = null then display "rating unavailable", otherwise display the value
+        let rating = anime.score 
         if (rating === null) {
           let textNode = document.createTextNode("Sorry, we don't have enough information to display an accurate rating.")
           let newLine = document.createElement('br')

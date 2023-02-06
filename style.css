@@ -1,11 +1,33 @@
 body {
-  background-color: #c7ddcc;
+  margin: 0;
+  background: linear-gradient(#c7ddcc, #F3E193);
+  background-attachment: fixed; /*resource used to have gradient cover the screen: https://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats */
+}
+
+#starting-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -250px;  
 }
 
 h1 {
   color: #16123f;
+  display: flex;
+  font-size: 100px;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgb(0 0 0 / 0.3);
 }
 
-img {
-  opacity: 0;
+#heading-subtitle {
+  color: #A2B4A6;
+  text-shadow: 2px 2px 5px rgb(0 0 0 / 0.3); /* text shadow opacity: https://css-tricks.com/almanac/properties/b/box-shadow/ */
+  font-size: 25px;
+  text-align: center;
+  margin-top: -50px;
+} 
+
+form {
+  display: none;
 }
