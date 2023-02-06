@@ -5,3 +5,7 @@ body {
 h1 {
   color: #16123f;
 }
+
+img {
+  opacity: 0;
+}
