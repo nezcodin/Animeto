@@ -19,6 +19,7 @@ async function getData (event) {
 
       let results = res.data
       let containerDisplay = document.querySelector('.container')
+      
       //NEED TO figure out how to delete old search that pops up now
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
@@ -48,19 +49,49 @@ async function getData (event) {
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
         let ratingByUsers = anime.scored_by
-        //console.log(ratingByUsers) //if...else: if scored_by = null then display nothing, otherwise display the value
+        if (ratingByUsers === null) {
+          let textNode = document.createTextNode("")
+          let newLine = document.createElement('br')
+          containerDisplay.appendChild(textNode)
+          containerDisplay.appendChild(newLine)
+        } else {
+          let textNode = document.createTextNode(`according to ${ratingByUsers} fans`)
+          let newLine = document.createElement('br')
+          containerDisplay.appendChild(textNode)
+          containerDisplay.appendChild(newLine)
+        }
       }
       
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
         let synopsis = anime.synopsis
-        //console.log(synopsis) //if...else: if synopsis = null then display "synopsis unavailable", otherwise display the string value
+        if (synopsis === null) {
+          let textNode = document.createTextNode("Synopsis unavailable.")
+          let newLine = document.createElement('br')
+          containerDisplay.appendChild(textNode)
+          containerDisplay.appendChild(newLine)
+        } else {
+          let textNode = document.createTextNode(synopsis)
+          let newLine = document.createElement('br')
+          containerDisplay.appendChild(textNode)
+          containerDisplay.appendChild(newLine)
+        }
       }
 
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
         let numEpisodes = anime.episodes
-        console.log(numEpisodes) //if...else: if episodes = null then display "unavailable", otherwise display number of episodes
+        if (numEpisodes === null) {
+          let textNode = document.createTextNode("Episodes: Unavailable")
+          let newLine = document.createElement('br')
+          containerDisplay.appendChild(textNode)
+          containerDisplay.appendChild(newLine)
+        } else {
+          let textNode = document.createTextNode(`Episodes: ${numEpisodes}`)
+          let newLine = document.createElement('br')
+          containerDisplay.appendChild(textNode)
+          containerDisplay.appendChild(newLine)
+        }
       }
       
       

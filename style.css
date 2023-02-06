@@ -28,6 +28,13 @@ h1 {
   margin-top: -50px;
 } 
 
+
+/* trying to figure out hover functionality (make search bar appear when header is hovered) may require JS instead */
+/* h1:hover + form {
+  background-color: yellow;
+  display: block;
+}
+
 form {
   display: none;
-}
+} */
