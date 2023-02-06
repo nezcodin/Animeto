@@ -18,12 +18,11 @@ async function getData (event) {
       //Access data & append to screen
 
       let results = res.data
-
+      let containerDisplay = document.querySelector('.container')
       //NEED TO figure out how to delete old search that pops up now
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
         let title = anime.title
-        let containerDisplay = document.querySelector('.container')
         let textNode = document.createTextNode(title)
         let newLine = document.createElement('br')
         containerDisplay.appendChild(textNode)
@@ -33,7 +32,17 @@ async function getData (event) {
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
         let rating = anime.score //if...else: if score = null then display "rating unavailable", otherwise display the value
-        //console.log(rating)
+        if (rating === null) {
+          let textNode = document.createTextNode("Sorry, we don't have enough information to display an accurate rating.")
+          let newLine = document.createElement('br')
+          containerDisplay.appendChild(textNode)
+          containerDisplay.appendChild(newLine)
+        } else {
+          let textNode = document.createTextNode(rating)
+          let newLine = document.createElement('br')
+          containerDisplay.appendChild(textNode)
+          containerDisplay.appendChild(newLine)
+        }
       }
 
       for (let i = 0; i < results.length; i++) {
@@ -56,13 +65,13 @@ async function getData (event) {
       
       
 
-      let rating = document.querySelector('.rating')
+      // let rating = document.querySelector('.rating')
 
-      let ratingByUsers = document.querySelector('.rating-by-users')
+      // let ratingByUsers = document.querySelector('.rating-by-users')
 
-      let synopsis = document.querySelector('.synopsis')
+      // let synopsis = document.querySelector('.synopsis')
 
-      let numEpisodes = document.querySelector('.episodes')
+      // let numEpisodes = document.querySelector('.episodes')
 
     })
     .catch(err => {
