@@ -44,6 +44,10 @@ h1 {
   margin-left: 150px;
 }
 
+#listing {
+  border: 5px solid green;
+}
+
 /* trying to figure out hover functionality (make search bar appear when header is hovered) may require JS instead */
 /* h1:hover + form {
   background-color: yellow;

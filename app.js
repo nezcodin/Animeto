@@ -27,14 +27,18 @@ async function getData (event) {
         containerDisplay.removeChild(containerDisplay.firstChild);
       }
 
-
-      //this cleans up the code, but now everything appends to the same div?? instead of their own unique div -> figure this out
+      //get proper path to display image for each listing
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
+        let listingDisplay = document.createElement('div')
+        listingDisplay.setAttribute("id", "listing")
+        containerDisplay.appendChild(listingDisplay)
+
+
         let title = anime.title
         let titleDisplay = document.createElement('h3')
         titleDisplay.innerHTML = `<h3 id='listing-name'>${title}</h3>`
-        containerDisplay.appendChild(titleDisplay)
+        listingDisplay.appendChild(titleDisplay)
 
         let rating = anime.score 
         let ratingDisplay = document.createElement('p')
@@ -43,7 +47,7 @@ async function getData (event) {
         } else {
           ratingDisplay.innerHTML = `<p id='listing-rating'>${rating}</p>`
         }
-        containerDisplay.appendChild(ratingDisplay)
+        listingDisplay.appendChild(ratingDisplay)
 
         let ratingByUsers = anime.scored_by
         let ratingByUsersDisplay = document.createElement('p')
@@ -52,7 +56,7 @@ async function getData (event) {
         } else {
           ratingByUsersDisplay.innerHTML = `<p id='listing-rated-by'>according to ${ratingByUsers} fans</p>`
         }
-        containerDisplay.appendChild(ratingByUsersDisplay)
+        listingDisplay.appendChild(ratingByUsersDisplay)
 
         let numEpisodes = anime.episodes
         let numEpisodesDisplay = document.createElement('p')
@@ -61,7 +65,7 @@ async function getData (event) {
         } else {
           numEpisodesDisplay.innerHTML = `<p id='listing-episodes'>Episodes: ${numEpisodes}</p>`
         }
-        containerDisplay.appendChild(numEpisodesDisplay)
+        listingDisplay.appendChild(numEpisodesDisplay)
 
         let synopsis = anime.synopsis
         let synopsisDisplay = document.createElement('p')
@@ -70,7 +74,7 @@ async function getData (event) {
         } else {
           synopsisDisplay.innerHTML = `<p id='listing-synopsis'>${synopsis}</p>`
         }
-        containerDisplay.appendChild(synopsisDisplay)
+        listingDisplay.appendChild(synopsisDisplay)
 
         
       }
