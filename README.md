@@ -13,6 +13,10 @@ The user will be able to
   - Synopsis
   - Number of episodes
 
+## Wireframe
+
+[Figma ANIMETO Wireframe](https://www.figma.com/file/D1HWpEUbEYJN2Xeg5BKZnu/Animeto-Wireframe?node-id=1%3A2&t=M1xwFzv5PnwWQpaH-0)
+
 ## Stretch Goals
 
 The user will eventually be able to
