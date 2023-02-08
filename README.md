@@ -24,6 +24,9 @@ The user will eventually be able to
 - Add anime they want to watch to a list
 - Remove anime from their watch list once they have finished it
 - Create a list of anime they have already seen, preventing it from showing up when searching for a new anime to watch
+- Have an expanded filter menu
+- See more information about a result
+- Enjoy smooth animations on the website
 
 ## Super Stretch Goals
 
@@ -32,3 +35,4 @@ The user will hopefully one day be able to
 - Create their own profile so that they can save their lists and refer back to them later/continue to add on to it
 - Rearrange their watch list in order of importance to them
 - Have all of these same functionalities for finding new manga to read
+- Have the website look good across all devices via media queries
