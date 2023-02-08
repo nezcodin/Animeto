@@ -15,13 +15,19 @@ async function getData (event) {
     .then(res => {
       console.log("Success! We're connected.", res)
 
+      //Keep certain elements on screen and some hidden
+
+      header.style.display = 'none'
+      headerSubtitle.style.display = 'none'
+      searchBar.style.display = 'block'
+      searchButton.style.display = 'block'
+
+
       //Access data & append to screen
 
       let results = res.data
       let containerDisplay = document.querySelector('.container')
       const checkboxes = document.querySelectorAll('input[type="checkbox"]')
-      
-      //changing home page and that stuff
 
 
       //filter functionality
@@ -104,5 +110,21 @@ async function getData (event) {
     })
 
 }
+
+//changing home page events
+
+const header = document.querySelector('#name')
+const headerSubtitle = document.querySelector('#heading-subtitle')
+const searchBar = document.querySelector('#search-bar')
+const searchButton = document.querySelector('#search-button')
+const filter = document.querySelector('#under-heading')
+
+header.addEventListener('click', () => {
+        searchBar.style.display = 'block'
+        searchButton.style.display = 'block'
+        filter.style.display = 'block'
+})
+
+//search event
 
 button.addEventListener('click', getData)
