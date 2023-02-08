@@ -27,7 +27,6 @@ async function getData (event) {
         containerDisplay.removeChild(containerDisplay.firstChild);
       }
 
-      //get proper path to display image for each listing
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
         let listingDisplay = document.createElement('div')
@@ -75,6 +74,12 @@ async function getData (event) {
           synopsisDisplay.innerHTML = `<p id='listing-synopsis'>${synopsis}</p>`
         }
         listingDisplay.appendChild(synopsisDisplay)
+
+        let image = anime.images.jpg.large_image_url
+        imageDisplay = document.createElement('img')
+        imageDisplay.innerHTML = `<img id='listing-image' alt='anime photo'></img>`
+        imageDisplay.src = image //for some reason adding the src in the innerHTML wasn't working, but this does
+        listingDisplay.appendChild(imageDisplay)
 
         
       }

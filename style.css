@@ -38,14 +38,26 @@ h1 {
 }
 
 .container {
-  border: 3px solid black;
   display: grid;
   grid-template-rows: auto;
-  margin-left: 150px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 #listing {
-  border: 5px solid green;
+  background-color: #ABD699;
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 0.3);
+}
+
+#listing-name {
+  font-size: 25px;
+}
+
+#listing-rating {
+  display: flex;
+  align-content: flex-end;
 }
 
 /* trying to figure out hover functionality (make search bar appear when header is hovered) may require JS instead */
