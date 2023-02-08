@@ -19,7 +19,22 @@ async function getData (event) {
 
       let results = res.data
       let containerDisplay = document.querySelector('.container')
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]')
       
+      //changing home page and that stuff
+
+
+      //filter functionality
+
+      // checkboxes.forEach(checkbox => {
+      //   checkbox.addEventListener('change', functionName)
+      // })
+
+      // function functionName(e) {
+
+      // }
+
+
       //removes old search when new search is made
       //resource used to help: https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild and https://developer.mozilla.org/en-US/docs/Web/API/Node/firstChild 
 
@@ -80,7 +95,6 @@ async function getData (event) {
         imageDisplay.innerHTML = `<img id='listing-image' alt='anime photo'></img>`
         imageDisplay.src = image //for some reason adding the src in the innerHTML wasn't working, but this does
         listingDisplay.appendChild(imageDisplay)
-
         
       }
 

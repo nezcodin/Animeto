@@ -18,6 +18,7 @@ h1 {
   font-size: 100px;
   text-align: center;
   text-shadow: 2px 2px 5px rgb(0 0 0 / 0.3);
+  display: none;
 }
 
 #heading-subtitle {
@@ -26,6 +27,7 @@ h1 {
   font-size: 25px;
   text-align: center;
   margin-top: -50px;
+  display: none;
 } 
 
 #search-bar {
@@ -58,6 +60,16 @@ h1 {
 #listing-rating {
   display: flex;
   align-content: flex-end;
+}
+
+#filter-heading {
+  text-align: center;
+}
+
+.filter-menu-checkbox {
+  background-color: gray;
+  width: 400px;
+  padding: 10px;
 }
 
 /* trying to figure out hover functionality (make search bar appear when header is hovered) may require JS instead */
