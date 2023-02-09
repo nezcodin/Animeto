@@ -1,4 +1,4 @@
-let button = document.querySelector("#search-button")
+let searchButton = document.querySelector("#search-button")
 
 async function getData (event) {
 
@@ -7,6 +7,40 @@ async function getData (event) {
   let textInput = document.querySelector("#search-bar").value 
 
   const url = `https://api.jikan.moe/v4/anime?q=${textInput}`
+
+  const urlGenre = `https://api.jikan.moe/v4/genres/anime`
+
+
+  fetch(urlGenre)
+    .then(res => {
+      return res.json()
+    })
+    .then(res => {
+      console.log("Success! We're connected to genres.", res)
+
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+
+
+      //filter functionality
+
+      // checkboxes.forEach(checkbox => {
+      //   checkbox.addEventListener('change', checkboxChange)
+      // })
+
+
+      let results = res.data
+
+      for (let i = 0; i < results.length; i++) {
+        let genres = results[i].name
+        console.log(genres)
+      }
+
+
+    })
+    .catch(err => {
+      console.log("Error. There's a problem with calling the genres.")
+    })
+
 
   fetch(url)
     .then(res => {
@@ -19,28 +53,17 @@ async function getData (event) {
 
       header.style.display = 'none'
       headerSubtitle.style.display = 'none'
-      searchBar.style.display = 'block'
-      searchButton.style.display = 'block'
+      searchBar.style.display = 'none'
+      searchButton.style.display = 'none'
+      filterMenu.style.display = 'none'
+      filter.style.display = 'none'
 
 
       //Access data & append to screen
 
       let results = res.data
       let containerDisplay = document.querySelector('.container')
-      const checkboxes = document.querySelectorAll('input[type="checkbox"]')
-
-
-      //filter functionality
-
-      // checkboxes.forEach(checkbox => {
-      //   checkbox.addEventListener('change', functionName)
-      // })
-
-      // function functionName(e) {
-
-      // }
-
-
+      
       //removes old search when new search is made
       //resource used to help: https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild and https://developer.mozilla.org/en-US/docs/Web/API/Node/firstChild 
 
@@ -48,17 +71,23 @@ async function getData (event) {
         containerDisplay.removeChild(containerDisplay.firstChild);
       }
 
+
       for (let i = 0; i < results.length; i++) {
         let anime = results[i]
         let listingDisplay = document.createElement('div')
         listingDisplay.setAttribute("id", "listing")
         containerDisplay.appendChild(listingDisplay)
 
+        let image = anime.images.jpg.large_image_url
+        imageDisplay = document.createElement('img')
+        imageDisplay.innerHTML = `<img id='listing-image' alt='anime photo'></img>`
+        imageDisplay.src = image //for some reason adding the src in the innerHTML wasn't working, but this does
+        listingDisplay.appendChild(imageDisplay)
 
         let title = anime.title
         let titleDisplay = document.createElement('h3')
         titleDisplay.innerHTML = `<h3 id='listing-name'>${title}</h3>`
-        listingDisplay.appendChild(titleDisplay)
+        listingDisplay.appendChild(titleDisplay)  
 
         let rating = anime.score 
         let ratingDisplay = document.createElement('p')
@@ -96,12 +125,6 @@ async function getData (event) {
         }
         listingDisplay.appendChild(synopsisDisplay)
 
-        let image = anime.images.jpg.large_image_url
-        imageDisplay = document.createElement('img')
-        imageDisplay.innerHTML = `<img id='listing-image' alt='anime photo'></img>`
-        imageDisplay.src = image //for some reason adding the src in the innerHTML wasn't working, but this does
-        listingDisplay.appendChild(imageDisplay)
-        
       }
 
     })
@@ -116,15 +139,20 @@ async function getData (event) {
 const header = document.querySelector('#name')
 const headerSubtitle = document.querySelector('#heading-subtitle')
 const searchBar = document.querySelector('#search-bar')
-const searchButton = document.querySelector('#search-button')
 const filter = document.querySelector('#under-heading')
+const openFilter = document.querySelector('#open-filter')
+const filterMenu = document.querySelector('.filter-menu')
 
 header.addEventListener('click', () => {
-        searchBar.style.display = 'block'
-        searchButton.style.display = 'block'
-        filter.style.display = 'block'
+  searchBar.style.display = 'block'
+  searchButton.style.display = 'block'
+  filter.style.display = 'block'
+})
+
+openFilter.addEventListener('click', () => {
+  filterMenu.style.display = 'block'
 })
 
 //search event
 
-button.addEventListener('click', getData)
+searchButton.addEventListener('click', getData)
