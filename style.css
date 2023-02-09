@@ -72,8 +72,15 @@ h1 {
   display: none;
 }
 
+#search-image {
+  height: 50px;
+  width: 50px;
+}
+
 #search-button {
   display: none;
+  background: transparent;
+  border: none;
 }
 
 .container {
@@ -100,7 +107,7 @@ h1 {
   
 }
 
-img { 
+#listing-image { 
   box-shadow: 2px 2px 2px black;
 }
 
