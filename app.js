@@ -18,22 +18,37 @@ async function getData (event) {
     .then(res => {
       console.log("Success! We're connected to genres.", res)
 
-      const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+//COME BACK TO THIS :-(
 
+
+  //   let checkboxes = document.querySelectorAll('input[type="checkbox"]')
+  //   for (let i = 0; i < checkboxes.length; i++) {
+  //     checkboxes[i].addEventListener('change', function() {
+  //       let label = document.querySelector('label[for="' + this.id + '"]')
+  //       let labelText = label.textContent
+  //       console.log(label)
+  //       console.log(labelText)
+  //   })
+  // }
 
       //filter functionality
 
+      let selectedGenres = []
+
       // checkboxes.forEach(checkbox => {
-      //   checkbox.addEventListener('change', checkboxChange)
+      //   checkbox.addEventListener('change', event => {
+      //     if (event.target.checked) {
+      //       selectedGenres.push(event.target.value)
+      //     } else {
+      //       const index = selectedGenres.indexOf(event.target.value)
+      //       selectedGenres.splice(index, 1)
+      //     }
+      //     console.log(selectedGenres)
+      //   })
       // })
+      
 
 
-      let results = res.data
-
-      for (let i = 0; i < results.length; i++) {
-        let genres = results[i].name
-        console.log(genres)
-      }
 
 
     })
