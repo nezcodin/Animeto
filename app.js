@@ -18,7 +18,7 @@ async function getData (event) {
     .then(res => {
       console.log("Success! We're connected to genres.", res)
 
-//COME BACK TO THIS :-(
+//FILTER FUNCTIONALITY, COME BACK TO THIS & RELATED ELEMENTS
 
 
   //   let checkboxes = document.querySelectorAll('input[type="checkbox"]')
@@ -30,8 +30,6 @@ async function getData (event) {
   //       console.log(labelText)
   //   })
   // }
-
-      //filter functionality
 
       let selectedGenres = []
 
@@ -68,8 +66,8 @@ async function getData (event) {
 
       header.style.display = 'none'
       headerSubtitle.style.display = 'none'
-      searchBar.style.display = 'none'
-      searchButton.style.display = 'none'
+      searchBar.style.display = 'inline-block'
+      searchButton.style.display = 'inline-block'
       filterMenu.style.display = 'none'
       filter.style.display = 'none'
 
@@ -159,9 +157,10 @@ const openFilter = document.querySelector('#open-filter')
 const filterMenu = document.querySelector('.filter-menu')
 
 header.addEventListener('click', () => {
-  searchBar.style.display = 'block'
-  searchButton.style.display = 'block'
-  filter.style.display = 'block'
+  searchBar.style.display = 'inline-block'
+  searchButton.style.display = 'inline-block'
+  filter.style.display = 'none'
+
 })
 
 openFilter.addEventListener('click', () => {

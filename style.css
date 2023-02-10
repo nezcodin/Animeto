@@ -2,65 +2,45 @@ body {
   margin: 0;
   background: linear-gradient(#c7ddcc, #F3E193);
   background-attachment: fixed; /*resource used to have gradient cover the screen: https://stackoverflow.com/questions/2869212/css3-gradient-background-set-on-body-doesnt-stretch-but-instead-repeats */
+  height: 100vh;
 }
 
-/* #starting-screen {
-  margin-left: 60px;
-  display: grid;
-  place-items: center;
-} */
+/* STARTING SCREEN */
 
+#starting-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 100%;
+}
 
-h1 {
+#name {
   color: #16123f;
   font-size: 100px;
   text-shadow: 2px 2px 5px rgb(0 0 0 / 0.3);
   text-align: center;
-  display: grid;
-  place-items: center;
-  margin: auto;
+  cursor: pointer;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 80px;
   animation-name: moveHeading;
   animation-duration: 4s;
   animation-fill-mode: forwards;
 }
-
-@keyframes moveHeading {
-  from{
-    transform: translateY(0);
-    opacity: 0%;
-  }
-  to{
-    transform: translateY(270px);
-    opacity: 100%;
-  }
-}
-
 
 #heading-subtitle {
   color: #A2B4A6;
   text-shadow: 2px 2px 5px rgb(0 0 0 / 0.3); /* text shadow opacity: https://css-tricks.com/almanac/properties/b/box-shadow/ */
   font-size: 25px;
   text-align: center;
-  margin-top: -50px;
-  display: grid;
-  place-items: center;
-  margin: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 80px;
   animation-name: moveHeading;
   animation-duration: 4s;
   animation-fill-mode: forwards;
 }  
-
-/* #search-bar {
-  border-radius: 20px;
-  padding: 20px;
-  font-size: 30px;
-  width: 500px;
-  text-align: center;
-  height: 10px;
-  display: grid;
-  display: inline;
-  /* display: none; */
-
 
 #search-bar {
   border-radius: 20px;
@@ -69,7 +49,10 @@ h1 {
   width: 500px;
   text-align: center;
   height: 10px;
+  margin-bottom: 50px;
+  margin-right: 5px;
   display: none;
+  position: relative;
 }
 
 #search-image {
@@ -81,34 +64,9 @@ h1 {
   display: none;
   background: transparent;
   border: none;
-}
-
-.container {
-  display: grid;
-  grid-template-rows: auto;
-  margin-left: 100px;
-  margin-right: 100px;
-}
-
-#listing {
-  background-color: #ABD699;
-  padding: 10px;
-  margin: 20px;
-  box-shadow: 2px 2px 5px rgb(0 0 0 / 0.3);
-}
-
-#listing {
-  display: grid;
-  align-items: baseline;
-}
-
-#listing-name {
-  font-size: 25px;
-  
-}
-
-#listing-image { 
-  box-shadow: 2px 2px 2px black;
+  cursor: pointer;
+  position: absolute;
+  align-items: center;
 }
 
 #under-heading {
@@ -128,9 +86,43 @@ h1 {
 #filter-heading {
   text-align: center;
 }
-/* trying to figure out hover functionality (make search bar appear when header is hovered) may require JS instead */
-/* h1:hover + form {
-  background-color: yellow;
-  display: block;
+
+/* LISTINGS STYLING */
+
+.container {
+  display: grid;
+  grid-template-rows: auto;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
+#listing {
+  background-color: #ABD699;
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 0.3);
+  display: grid;
+  align-items: baseline;
+}
+
+#listing-name {
+  font-size: 25px;
+  
+}
+
+#listing-image { 
+  box-shadow: 2px 2px 2px black;
+}
+
+ /* KEYFRAMES */
+
+@keyframes moveHeading {
+  from{
+    transform: translateY(-270px);
+    opacity: 0%;
+  }
+  to{
+    transform: translateY(-25px);
+    opacity: 100%;
+  }
+}
