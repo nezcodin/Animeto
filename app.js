@@ -107,7 +107,7 @@ async function getData (event) {
         if (rating === null) {
           ratingDisplay.innerHTML = "<p id='listing-rating'>Sorry, we don't have enough information to display an accurate rating.</p>"
         } else {
-          ratingDisplay.innerHTML = `<p id='listing-rating'>${rating}</p>`
+          ratingDisplay.innerHTML = `<p id='listing-rating'>${rating} rating</p>`
         }
         listingDisplay.appendChild(ratingDisplay)
 

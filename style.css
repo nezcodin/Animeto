@@ -58,6 +58,7 @@ body {
 #search-image {
   height: 50px;
   width: 50px;
+  box-shadow: none;
 }
 
 #search-button {
@@ -90,10 +91,9 @@ body {
 /* LISTINGS STYLING */
 
 .container {
-  display: grid;
-  grid-template-rows: auto;
   margin-left: 100px;
   margin-right: 100px;
+  margin-top: -300px;
 }
 
 #listing {
@@ -101,17 +101,14 @@ body {
   padding: 10px;
   margin: 20px;
   box-shadow: 2px 2px 5px rgb(0 0 0 / 0.3);
-  display: grid;
-  align-items: baseline;
 }
 
 #listing-name {
   font-size: 25px;
-  
 }
 
-#listing-image { 
-  box-shadow: 2px 2px 2px black;
+img { 
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 0.3);
 }
 
  /* KEYFRAMES */
@@ -126,3 +123,12 @@ body {
     opacity: 100%;
   }
 }
+
+/* @keyframes moveSearch {
+  from{
+    transform: translateX(0), translateY();
+  }
+  to{
+    transform: translateX(-200px), translateY(-200px);
+  }
+} */
