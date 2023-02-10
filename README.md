@@ -19,7 +19,7 @@ The user will be able to
 
 ## Website Link
 
-[ANIMETO](ANIMETO.surge.sh)
+[ANIMETO](http://animeto.surge.sh/)
 
 ## Stretch Goals
 
